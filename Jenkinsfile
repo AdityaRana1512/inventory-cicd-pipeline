@@ -25,15 +25,22 @@ pipeline {
                 bat 'python -m pytest tests/'
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                bat 'docker --version'
+                bat 'docker build -t inventory-app:latest .'
+            }
+        }
     }
 
     post {
         success {
             echo 'Pipeline Successful!'
         }
+
         failure {
-            echo 'Pipeline Failed!'
+            echo 'Pipeline Failed! Check Console Output.'
         }
     }
 }
-  
