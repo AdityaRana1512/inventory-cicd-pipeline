@@ -1,5 +1,10 @@
+
 pipeline {
     agent any
+
+    environment {
+        PATH = "C:\\Users\\adity\\AppData\\Local\\Programs\\Python\\Python314;${env.PATH}"
+    }
 
     stages {
         stage('Checkout') {
@@ -31,3 +36,4 @@ pipeline {
         }
     }
 }
+  
